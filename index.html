@@ -1,3 +1,46 @@
-<html><body> Hello
+<html>
+<head>
+	<script>
+		const sekarangyangke = 1;
+		var bundel = [
+			""
+		];
+	</script>
+</head>
+
+<body onload="yuk()">
+	<h1>Halo!</h1>
+	<h2 id="loading"></h2>
 </body>
+
+<script>
+	
+	function yuk (){
+		var c = 0;
+		var wait = setInterval(function(){
+			if (c<4) {
+				document.getElementById('loading').innerText += '.';
+				c++;
+			} else {
+				c=0;
+				document.getElementById('loading').innerText = '';
+			};				
+		}, 100)
+
+		if (bundel[sekarangyangke]){
+			alert("Klik!")
+			var wait2 = setInterval(function(){
+				window.location.href = bundel[sekarangyangke];
+				clearInterval(wait2)
+				clearInterval(wait)
+			}, 1000)
+		} else {
+			alert("Mohon menunggu, link belum dirilis")
+			document.getElementById('loading').innerText = "Coba lagi nanti, ya";
+			clearInterval(wait)
+		}
+	}
+
+	
+</script>
 </html>
